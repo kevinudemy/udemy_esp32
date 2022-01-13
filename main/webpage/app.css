@@ -1,0 +1,140 @@
+
+
+body {
+    background-color: #f1f1f1;
+    font-family: HelveticaNeueRegular, HelveticaNeue-Regular, "Helvetica Neue Regular", HelveticaNeue, "Helvetica Neue", Helvetica, Arial;
+    color: #0272B7;
+}
+
+h1 {
+    display: block;
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    font-size: 1.7em;
+    color: #1d3557;
+}
+
+h2 {
+	font-size: 1.4em;
+    color: #1d3557;
+}
+
+h3 {
+	font-size: 1.2em;
+    color: #1d3557;
+}
+
+h4 {
+	font-size: 1em;
+    color: #1d3557;
+}
+
+.gr {
+	color: green;
+}
+.rd {
+	color: red;
+}
+
+#ap_ssid {
+	display:inline;
+	color: #1d3557;
+}
+
+#local_time {
+	display:inline;
+	color: #1d3557;
+}
+
+#latest_firmware, #latest_firmware_label {
+	display:inline;
+}
+#latest_firmware {
+	color: #1d3557;
+}
+
+#temperature_reading {
+	display:inline;
+	color: #1d3557;
+}
+
+#humidity_reading {
+	display:inline;
+	color: #1d3557;
+}
+
+#connected_ap_label, #connected_ap {
+	display:inline;
+}
+
+#ip_address_label, #netmask_label, #gateway_label {
+	display:inline;
+}
+
+#wifi_connect_ip, #wifi_connect_netmask, #wifi_connect_gw {
+	display:inline;
+}
+
+#connected_ap {
+	color: #1d3557;
+}
+
+#wifi_connect_ip {
+	color: #1d3557;
+}
+
+#wifi_connect_netmask {
+	color: #1d3557;
+}
+
+#wifi_connect_gw {
+	color: #1d3557;
+}
+
+#disconnect_wifi {
+	display: none;
+}
+
+.buttons {
+    padding: 5px;
+}
+
+input[type="button"] {
+	font-size: 12px;
+	border: 0;
+    line-height: 2;
+    padding: 0 5px;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: RGBA(106,125,144,0.35);
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+input[type="button"]:hover {
+    background-color: RGBA(112,164,222,0.68);
+}
+
+input[type="button"]:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+
+
+
+
+
+
+
+
+
+
+
