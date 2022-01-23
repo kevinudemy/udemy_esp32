@@ -68,8 +68,8 @@ function updateFirmware()
 function updateProgress(oEvent) 
 {
     if (oEvent.lengthComputable) 
-	{
-        getUpdateStatus();
+    {
+		getUpdateStatus();
     } 
 	else 
 	{
@@ -99,8 +99,10 @@ function getUpdateStatus()
 		{
     		// Set the countdown timer time
             seconds = 10;
+            // Send the success message
+            document.getElementById("ota_update_status").innerHTML = "OTA Firmware Update Successful!!! Rebooting in: " + seconds;
             // Start the countdown timer
-            otaRebootTimer();
+            otaTimerVar = setInterval(otaRebootTimer, 1000);
         } 
         else if (response.ota_update_status == -1)
 		{
@@ -115,16 +117,12 @@ function getUpdateStatus()
 function otaRebootTimer() 
 {	
     document.getElementById("ota_update_status").innerHTML = "OTA Firmware Update Complete. This page will close shortly, Rebooting in: " + seconds;
-
+ 
     if (--seconds == 0) 
 	{
         clearTimeout(otaTimerVar);
         window.location.reload();
     } 
-	else 
-	{
-        otaTimerVar = setTimeout(otaRebootTimer, 1000);
-    }
 }
 
 /**
