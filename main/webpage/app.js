@@ -99,8 +99,7 @@ function getUpdateStatus()
 		{
     		// Set the countdown timer time
             seconds = 10;
-            // Send the success message
-            document.getElementById("ota_update_status").innerHTML = "OTA Firmware Update Successful!!! Rebooting in: " + seconds;
+
             // Start the countdown timer
             otaTimerVar = setInterval(otaRebootTimer, 1000);
         } 
@@ -116,9 +115,10 @@ function getUpdateStatus()
  */
 function otaRebootTimer() 
 {	
+	--seconds;
     document.getElementById("ota_update_status").innerHTML = "OTA Firmware Update Complete. This page will close shortly, Rebooting in: " + seconds;
  
-    if (--seconds == 0) 
+    if (seconds == 0) 
 	{
         clearTimeout(otaTimerVar);
         window.location.reload();
