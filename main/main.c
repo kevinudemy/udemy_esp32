@@ -5,6 +5,7 @@
 #include "esp_log.h"
 #include "nvs_flash.h"
 
+#include "aws_iot.h"
 #include "DHT22.h"
 #include "sntp_time_sync.h"
 #include "wifi_app.h"
@@ -16,6 +17,7 @@ void wifi_application_connected_events(void)
 {
 	ESP_LOGI(TAG, "WiFi Application Connected!!");
 	sntp_time_sync_task_start();
+	aws_iot_start();
 }
 
 void app_main(void)
