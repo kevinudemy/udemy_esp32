@@ -57,7 +57,7 @@ void wifi_reset_button_config(void)
 	wifi_reset_semphore = xSemaphoreCreateBinary();
 
 	// Configure the button and set the direction
-	gpio_pad_select_gpio(WIFI_RESET_BUTTON);
+	esp_rom_gpio_pad_select_gpio(WIFI_RESET_BUTTON);
 	gpio_set_direction(WIFI_RESET_BUTTON, GPIO_MODE_INPUT);
 
 	// Enable interrupt on the negative edge

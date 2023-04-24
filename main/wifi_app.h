@@ -9,7 +9,8 @@
 #define MAIN_WIFI_APP_H_
 
 #include "esp_netif.h"
-
+#include "esp_wifi_types.h"
+#include "freertos/FreeRTOS.h"
 
 // Callback typedef
 typedef void (*wifi_connected_event_callback_t)(void);

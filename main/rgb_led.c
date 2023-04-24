@@ -10,6 +10,9 @@
 #include "driver/ledc.h"
 #include "rgb_led.h"
 
+// RGB LED Configuration Array
+ledc_info_t ledc_ch[RGB_LED_CHANNEL_NUM];
+
 // handle for rgb_led_pwm_init
 bool g_pwm_init_handle = false;
 

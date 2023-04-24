@@ -90,7 +90,7 @@ int getSignalLevel( int usTimeOut, bool state )
 			return -1;
 		
 		++uSec;
-		ets_delay_us(1);		// uSec delay
+		esp_rom_delay_us(1);		// uSec delay
 	}
 	
 	return uSec;
@@ -155,11 +155,11 @@ uint8_t bitInx = 7;
 
 	// pull down for 3 ms for a smooth and nice wake up 
 	gpio_set_level( DHTgpio, 0 );
-	ets_delay_us( 3000 );			
+	esp_rom_delay_us( 3000 );
 
 	// pull up for 25 us for a gentile asking for data
 	gpio_set_level( DHTgpio, 1 );
-	ets_delay_us( 25 );
+	esp_rom_delay_us( 25 );
 
 	gpio_set_direction( DHTgpio, GPIO_MODE_INPUT );		// change to input mode
   
@@ -237,7 +237,7 @@ uint8_t bitInx = 7;
 static void DHT22_task(void *pvParameter)
 {
 	setDHTgpio(DHT_GPIO);
-	printf("Starting DHT task\n\n");
+//	printf("Starting DHT task\n\n");
 
 	for (;;)
 	{
@@ -251,7 +251,7 @@ static void DHT22_task(void *pvParameter)
 
 		// Wait at least 2 seconds before reading again
 		// The interval of the whole process must be more than 2 seconds
-		vTaskDelay(4000 / portTICK_RATE_MS);
+		vTaskDelay(4000 / portTICK_PERIOD_MS);
 	}
 }
 

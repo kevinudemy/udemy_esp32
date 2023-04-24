@@ -24,7 +24,7 @@ typedef struct
 	int mode;
 	int timer_index;
 } ledc_info_t;
-ledc_info_t ledc_ch[RGB_LED_CHANNEL_NUM];
+// ledc_info_t ledc_ch[RGB_LED_CHANNEL_NUM]; Move this declaration to the top of rgb_led.c to avoid linker errors
 
 /**
  * Color to indicate WiFi application has started.
