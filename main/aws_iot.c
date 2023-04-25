@@ -148,7 +148,7 @@ void aws_iot_task(void *param) {
         rc = aws_iot_mqtt_connect(&client, &connectParams);
         if(SUCCESS != rc) {
             ESP_LOGE(TAG, "Error(%d) connecting to %s:%d", rc, mqttInitParams.pHostURL, mqttInitParams.port);
-            vTaskDelay(1000 / portTICK_RATE_MS);
+            vTaskDelay(1000 / portTICK_PERIOD_MS);
         }
     } while(SUCCESS != rc);
 
@@ -173,7 +173,7 @@ void aws_iot_task(void *param) {
         abort();
     }
 
-    sprintf(cPayload, "%s : %d ", "hello from SDK", i);
+    sprintf(cPayload, "%s : %ld ", "hello from SDK", i);
 
     paramsQOS0.qos = QOS0;
     paramsQOS0.payload = (void *) cPayload;
@@ -192,8 +192,8 @@ void aws_iot_task(void *param) {
             continue;
         }
 
-        ESP_LOGI(TAG, "Stack remaining for task '%s' is %d bytes", pcTaskGetTaskName(NULL), uxTaskGetStackHighWaterMark(NULL));
-        vTaskDelay(3000 / portTICK_RATE_MS);
+        ESP_LOGI(TAG, "Stack remaining for task '%s' is %d bytes", pcTaskGetName(NULL), uxTaskGetStackHighWaterMark(NULL));
+        vTaskDelay(3000 / portTICK_PERIOD_MS);
         sprintf(cPayload, "%s : %d ", "WiFi RSSI", wifi_app_get_rssi());
         paramsQOS0.payloadLen = strlen(cPayload);
         rc = aws_iot_mqtt_publish(&client, TOPIC, TOPIC_LEN, &paramsQOS0);
@@ -218,10 +218,6 @@ void aws_iot_start(void)
 		xTaskCreatePinnedToCore(&aws_iot_task, "aws_iot_task", AWS_IOT_TASK_STACK_SIZE, NULL, AWS_IOT_TASK_PRIORITY, &task_aws_iot, AWS_IOT_TASK_CORE_ID);
 	}
 }
-
-
-
-
 
 
 
