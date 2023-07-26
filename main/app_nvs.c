@@ -80,10 +80,6 @@ bool app_nvs_load_sta_creds(void)
 	{
 		wifi_config_t *wifi_sta_config = wifi_app_get_wifi_config();
 
-		if (wifi_sta_config == NULL)
-		{
-			wifi_sta_config = (wifi_config_t*)malloc(sizeof(wifi_config_t));
-		}
 		memset(wifi_sta_config, 0x00, sizeof(wifi_config_t));
 
 		// Allocate buffer
