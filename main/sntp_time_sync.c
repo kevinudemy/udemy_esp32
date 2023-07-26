@@ -56,7 +56,7 @@ static void sntp_time_sync_obtain_time(void)
 	localtime_r(&now, &time_info);
 
 	// Check the time, in case we need to initialize/reinitialize
-	if (time_info.tm_year < (2016 - 1900))
+	if (sntp_op_mode_set == false || time_info.tm_year < (2016 - 1900))
 	{
 		sntp_time_sync_init_sntp();
 		// Set the local time zone
