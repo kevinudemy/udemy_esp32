@@ -1,0 +1,7 @@
+build
+sdkconfig.old
+main/certs/aws_root_ca_pem
+main/certs/certificate_pem_crt
+main/certs/private_pem_key
+sdkconfig
+sdkconfig.backup
